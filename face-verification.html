@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Facial Verification | K-Tix Assist</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/verification.css">
+</head>
+
+<body>
+    <div class="auth" style="max-width:640px"><a class="logo" href="index.html" style="text-align:center">K-Tix
+            <b>Assist</b></a>
+        <div class="steps"><span class="done">Registered</span><span class="done">Valid ID</span><span
+                class="on">Face</span><span>Policies</span></div>
+        <h2 style="text-align:center;margin:0">Facial Verification</h2>
+        <p class="muted" style="text-align:center">To protect your account and ticket transactions, please complete
+            facial verification.</p>
+        <div class="card" style="text-align:center">
+            <div class="face" id="fc">📷<br>Camera preview</div>
+            <div class="bar"><i id="pg" style="width:0"></i></div>
+            <p id="fm" style="margin:12px 0">Center your face in the frame, remove glasses/masks, use good lighting.</p>
+            <button class="btn" id="sv">Start Facial Verification</button> <button class="btn out" id="rt" hidden
+                style="color:var(--pri)">Retry</button> <button class="btn ok" id="go" hidden>Continue</button>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/verification.js"></script>
+</body>
+
+</html>

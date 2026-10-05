@@ -1,0 +1,2 @@
+/* verification page-specific styles (shared theme in style.css) */
+.face{width:230px;height:290px;margin:16px auto;border:3px dashed var(--pri2);border-radius:50%;display:flex;align-items:center;justify-content:center;background:#1a1530;color:#fff;text-align:center}.face.scan{border-style:solid;border-color:var(--pink);animation:p 1s infinite}@keyframes p{50%{box-shadow:0 0 30px var(--pink)}}.pol{max-height:150px;overflow:auto;margin-bottom:12px;padding:10px;background:#faf9ff;border-radius:10px;font-size:.85rem}

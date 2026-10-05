@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home | K-Tix Assist</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/landing.css">
+</head>
+
+<body>
+    <header id="nav"></header>
+    <main>
+        <section class="hero">
+            <div class="wrap">
+                <h1>K-Tix Assist</h1>
+                <h3 style="margin-top:8px">Your K-Pop Concert Ticketing Assistance Platform</h3>
+                <p>Discover concerts, view ticket information, submit requests, and track your ticket assistance in one
+                    place.</p><a class="btn" href="#concerts">Browse Concerts</a> <a class="btn out"
+                    href="login.html">Get Ticket</a>
+            </div>
+        </section>
+        <section class="wrap" id="concerts">
+            <h2>Featured Concerts</h2>
+            <div class="grid" id="cg"></div>
+            <h2 id="news">Announcements</h2>
+            <div class="grid" id="ng"></div>
+            <h2>5Ws Event Information</h2>
+            <div class="five">
+                <div class="glass"><b>WHO</b>Artist / Group</div>
+                <div class="glass"><b>WHAT</b>Concert / Event</div>
+                <div class="glass"><b>WHEN</b>Date and Time</div>
+                <div class="glass"><b>WHERE</b>Venue</div>
+                <div class="glass"><b>WHY</b>Event purpose &amp; concert information</div>
+            </div>
+            <h2 id="how">How It Works</h2>
+            <div class="five">
+                <div class="glass"><b>1</b>Browse concerts freely</div>
+                <div class="glass"><b>2</b>Click Get Ticket &amp; log in / sign up</div>
+                <div class="glass"><b>3</b>Verify ID &amp; face, accept policies</div>
+                <div class="glass"><b>4</b>Request &amp; track your ticket</div>
+                <div class="glass"><b>5</b>Receive and view your released ticket</div>
+            </div>
+            <h2 id="about">About</h2>
+            <p class="muted">K-Tix Assist is a capstone prototype for ticketing assistance and request management. No
+                real payments or identity checks are performed.</p>
+        </section>
+    </main>
+    <footer>© K-Tix Assist Prototype</footer>
+    <script src="js/main.js"></script>
+    <script>pubNav(); $('#cg').innerHTML = DB.concerts.filter(c => c.pub).map(ccard).join(''); $('#ng').innerHTML = DB.concerts.map(c => `<div class="glass"><span class="tag">${c.artist}</span><p style="margin-top:8px">${c.ann}</p></div>`).join('') + '<div class="glass"><span class="tag">System</span><p style="margin-top:8px">Verified accounts are required for ticket requests.</p></div>'</script>
+</body>
+
+</html>

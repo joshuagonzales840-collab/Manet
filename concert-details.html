@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Concert Details | K-Tix Assist</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/landing.css">
+</head>
+
+<body>
+    <header id="nav"></header>
+    <main class="wrap" id="d" style="padding-top:30px"></main>
+    <script src="js/main.js"></script>
+    <script>pubNav(); const c = con(new URLSearchParams(location.search).get('id')) || DB.concerts[0];
+        $('#d').innerHTML = `<div class="cimg" style="height:240px;font-size:2.4rem;background:linear-gradient(135deg,${c.g})">${c.artist}</div><h1>${c.name}</h1><p class="muted">${c.date} · ${c.time} · ${c.venue}</p><p style="margin:14px 0">${c.desc}</p>
+<p style="background:#ffffff12;padding:12px;border-radius:12px">📢 ${c.ann}</p><h2>Ticket Categories</h2><div class="card">${tbl(['Category', 'Price', 'Available'], c.cats.map(k => [k.n, P(k.p), rem(k) + ' / ' + k.t]))}</div>
+<h2>5Ws</h2><div class="five"><div class="glass"><b>WHO</b>${c.artist}</div><div class="glass"><b>WHAT</b>${c.name}</div><div class="glass"><b>WHEN</b>${c.date}, ${c.time}</div><div class="glass"><b>WHERE</b>${c.venue}</div><div class="glass"><b>WHY</b>${c.why}</div></div>
+<p style="margin:24px 0"><button class="btn" data-get="${c.id}">Get Ticket</button> <button class="btn out" data-get="${c.id}">Request Ticket</button> <a class="btn out" href="index.html">← Back</a></p>`</script>
+</body>
+
+</html>

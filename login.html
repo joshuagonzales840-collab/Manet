@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Login | K-Tix Assist</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div class="login-layout">
+        <!-- Role Sidebar -->
+        <aside class="login-side" id="roles">
+            <a class="logo" href="index.html">K-Tix <b>Assist</b></a>
+            <p class="side-label">CHOOSE LOGIN TYPE</p>
+            <div class="role" data-r="user">
+                <span class="role-icon">🎤</span>
+                <span class="role-text">USER / FAN</span>
+            </div>
+            <div class="role" data-r="staff">
+                <span class="role-icon">🎫</span>
+                <span class="role-text">STAFF</span>
+            </div>
+            <div class="role" data-r="admin">
+                <span class="role-icon">🛡️</span>
+                <span class="role-text">ADMIN</span>
+            </div>
+            <a class="side-back" href="index.html">← Back to Home</a>
+        </aside>
+
+        <!-- Login Form -->
+        <div class="login-main">
+            <form class="card" id="lf" novalidate>
+                <h2 id="lt" style="margin:0 0 4px">USER / FAN LOGIN</h2>
+                <p class="muted" style="margin-bottom:18px">Sign in to continue</p>
+                <label id="ll">Email Address / Username</label>
+                <input id="id" autocomplete="username">
+                <label>Password</label>
+                <div class="pw">
+                    <input id="pw" type="password">
+                    <button type="button" class="ghost" id="eye">Show</button>
+                </div>
+                <label style="font-weight:400"><input type="checkbox" id="rm"> Remember Me</label>
+                <div class="err" id="er"></div>
+                <button class="btn full">LOGIN</button>
+                <p style="margin-top:14px"><a href="forgot-password.html" style="color:var(--pri)">Forgot Password?</a></p>
+                <p id="su" style="margin-top:8px">Don't have an account? <a href="register.html"
+                        style="color:var(--pri);font-weight:600">Sign Up</a></p>
+                <p class="muted" id="demo" style="font-size:.78rem;margin-top:12px"></p>
+            </form>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+/* login page-specific styles (shared theme in style.css) */
+/* ===== Login page — role sidebar layout ===== */
+
+.login-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Left sidebar */
+.login-side {
+  width: 260px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #140f28, #0d0b16);
+  border-right: 1px solid var(--line, #ffffff1a);
+  padding: 28px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.login-side .logo {
+  font-weight: 800;
+  font-size: 1.25rem;
+  padding: 4px 10px 20px;
+  border-bottom: 1px solid var(--line, #ffffff1a);
+  margin-bottom: 14px;
+}
+
+.side-label {
+  font-size: .7rem;
+  letter-spacing: .12em;
+  color: var(--mut, #8b86a3);
+  padding: 0 10px 10px;
+  font-weight: 600;
+}
+
+.login-side .role {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  color: #cfc9e8;
+  font-weight: 600;
+  font-size: .9rem;
+  border: 2px solid transparent;
+  background: transparent;
+  transition: .2s;
+}
+
+.login-side .role:hover {
+  background: #ffffff12;
+  transform: none;
+}
+
+.login-side .role.on {
+  background: var(--grad, linear-gradient(135deg, #7c3aed 0%, #a855f7 55%, #ec4899 130%));
+  border-color: transparent;
+  color: #fff;
+  box-shadow: var(--glow, 0 8px 24px rgba(124, 58, 237, .45));
+}
+
+.role-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.role-text {
+  letter-spacing: .02em;
+}
+
+.side-back {
+  margin-top: auto;
+  padding: 12px 14px;
+  color: #cfc9e8;
+  font-size: .85rem;
+  border-radius: 12px;
+  transition: .2s;
+}
+
+.side-back:hover {
+  background: #ffffff12;
+  color: #fff;
+}
+
+/* Right form area */
+.login-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.login-main .card {
+  width: 100%;
+  max-width: 420px;
+  padding: 32px;
+  border-radius: 22px;
+}
+
+/* Mobile: stack sidebar on top as horizontal tabs */
+@media (max-width: 720px) {
+  .login-layout {
+    flex-direction: column;
+  }
+
+  .login-side {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    border-right: none;
+    border-bottom: 1px solid var(--line, #ffffff1a);
+  }
+
+  .login-side .logo {
+    width: 100%;
+    border-bottom: none;
+    margin-bottom: 4px;
+    padding-bottom: 8px;
+  }
+
+  .side-label {
+    width: 100%;
+    padding-bottom: 4px;
+  }
+
+  .login-side .role {
+    flex: 1;
+    min-width: 100px;
+    justify-content: center;
+    padding: 12px 8px;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+    font-size: .78rem;
+  }
+
+  .side-back {
+    display: none;
+  }
+
+  .login-main {
+    padding: 24px 16px;
+  }
+}

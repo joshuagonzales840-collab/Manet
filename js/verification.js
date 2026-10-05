@@ -1,0 +1,13 @@
+const s=S();if(!s||s.role!='user')location.replace('login.html');const U=()=>DB.users.find(u=>u.username==s.username);
+if($('#drops')){const files={};let ok=0;
+['Front of ID','Back of ID'].forEach((t,i)=>{const d=document.createElement('div');d.innerHTML=`<label>${t}</label><div class="drop"><p>Drag &amp; drop or <u>Browse File</u></p><input type="file" accept="image/*" hidden><div class="pv"></div></div>`;$('#drops').append(d);const z=$('.drop',d),f=$('input',d);
+const set=file=>{if(!file||!file.type.startsWith('image/'))return toast('Please choose an image file.');files[i]=file.name;$('.pv',d).innerHTML=`<img src="${URL.createObjectURL(file)}"><p>${file.name}</p><button type="button" class="btn sm bad">Remove / Replace</button>`;$('button',d).onclick=ev=>{ev.stopPropagation();delete files[i];$('.pv',d).innerHTML='';f.value=''}};
+z.onclick=()=>f.click();f.onchange=()=>set(f.files[0]);z.ondragover=e=>e.preventDefault();z.ondrop=e=>{e.preventDefault();set(e.dataTransfer.files[0])}});
+const st=(t,c)=>{$('#st').textContent=t;$('#st').className='tag '+c};
+$('#up').onclick=()=>{if(!files[0]||!files[1])return toast('Upload both front and back of your ID.');st('Verification Pending','Pending');$('#re').hidden=1;setTimeout(()=>{if(Object.values(files).some(n=>/reject/i.test(n))){st('ID Rejected','Rejected');$('#re').hidden=0}else{st('ID Verified','Verified');U().idOk=1;save();$('#go').hidden=0}},1800)};
+$('#re').onclick=()=>{location.reload()};$('#go').onclick=()=>location.href='face-verification.html'}
+if($('#sv')){const run=()=>{$('#sv').hidden=1;$('#rt').hidden=1;$('#fc').classList.add('scan');$('#fm').textContent='Verifying Face...';let p=0;const t=setInterval(()=>{p+=5;$('#pg').style.width=p+'%';if(p>=100){clearInterval(t);$('#fc').classList.remove('scan');$('#fc').innerHTML='✓';$('#fm').innerHTML='<b style="color:var(--ok)">✓ Face Verification Successful</b>';U().faceOk=1;save();$('#go').hidden=0;$('#rt').hidden=0}},120)};
+$('#sv').onclick=run;$('#rt').onclick=()=>{$('#go').hidden=1;$('#pg').style.width=0;$('#fc').innerHTML='📷<br>Camera preview';run()};$('#go').onclick=()=>{sessionStorage.removeItem('ses');sessionStorage.setItem('msg','Face verified! Please log in to continue.');location.href='login.html'}}
+if($('#ac')){const ck=$$('.ck'),upd=()=>$('#ac').disabled=!ck.every(c=>c.checked);ck.forEach(c=>c.onchange=upd);
+$('#ac').onclick=()=>{U().policy=1;save();log('User','Accepted Policies','Verification',s.username);location.href='user-dashboard.html'};
+$('#dc').onclick=()=>{$('#er').textContent='You must accept the required policies to continue using ticket request services.';ck.forEach(c=>c.checked=0);upd()}}

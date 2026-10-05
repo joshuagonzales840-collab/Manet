@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Verify Identity | K-Tix Assist</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/verification.css">
+</head>
+
+<body>
+    <div class="auth" style="max-width:640px"><a class="logo" href="index.html" style="text-align:center">K-Tix
+            <b>Assist</b></a>
+        <div class="steps"><span class="done">Registered</span><span class="on">Valid
+                ID</span><span>Face</span><span>Policies</span></div>
+        <h2 style="text-align:center;margin:0">Verify Your Identity</h2>
+        <p class="muted" style="text-align:center">Please submit a valid ID to verify your identity before requesting
+            tickets.</p>
+        <div class="card">
+            <div class="grid" id="drops"></div>
+            <p style="margin:14px 0">Status: <span id="st" class="tag">Not submitted</span></p>
+            <p class="muted" style="font-size:.78rem">Demo: a file name containing "reject" simulates a rejected ID.</p>
+            <button class="btn" id="up">Upload ID</button> <button class="btn out" id="re" hidden
+                style="color:var(--pri)">Re-upload ID</button> <button class="btn ok" id="go" hidden>Continue</button>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/verification.js"></script>
+</body>
+
+</html>
