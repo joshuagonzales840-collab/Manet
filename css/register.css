@@ -1,1 +1,82 @@
-/* register page-specific styles (shared theme in style.css) */
+body.auth-page .register-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 24px;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 760px;
+  padding: 30px 34px 26px;
+  border: 1px solid rgba(131, 147, 161, 0.15);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 16px 38px rgba(12, 29, 44, 0.08);
+}
+
+.register-card h1 {
+  margin: 0;
+  color: #1b2738;
+  text-align: center;
+  font-size: clamp(1.7rem, 2vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+.register-card .login-subtitle {
+  margin: 9px 0 24px;
+}
+
+.register-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 20px;
+}
+
+.register-card .field-group {
+  margin-bottom: 14px;
+}
+
+.register-card .field-group label {
+  margin-bottom: 6px;
+  color: #2a3641;
+  font-size: 0.88rem;
+}
+
+.register-card .field-group input {
+  height: 42px;
+  font-size: 0.92rem;
+}
+
+.register-card .sign-in-button {
+  margin-top: 14px;
+}
+
+.register-login-link {
+  margin: 18px 0 0;
+  color: #5d6d7c;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.register-login-link a {
+  color: #0f5de6;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  body.auth-page .register-panel {
+    padding: 24px 16px;
+  }
+
+  .register-card {
+    padding: 24px 20px 20px;
+  }
+
+  .register-fields {
+    grid-template-columns: 1fr;
+  }
+}

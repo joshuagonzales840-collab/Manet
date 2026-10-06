@@ -9,48 +9,91 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 
-<body>
-    <div class="login-layout">
-        <!-- Role Sidebar -->
-        <aside class="login-side" id="roles">
-            <a class="logo" href="index.html">K-Tix <b>Assist</b></a>
-            <p class="side-label">CHOOSE LOGIN TYPE</p>
-            <div class="role" data-r="user">
-                <span class="role-icon">🎤</span>
-                <span class="role-text">USER / FAN</span>
+<body class="auth-page">
+    <div class="login-shell">
+        <aside class="login-sidebar" aria-label="Login navigation">
+            <div class="sidebar-header">
+                <div class="brand-mark" aria-hidden="true"></div>
+                <div class="brand-name">K-Tix Assist</div>
             </div>
-            <div class="role" data-r="staff">
-                <span class="role-icon">🎫</span>
-                <span class="role-text">STAFF</span>
+
+            <div class="auth-nav-label">CHOOSE LOGIN TYPE</div>
+            <nav class="auth-nav" aria-label="Authentication options">
+                <button class="nav-item role on" type="button" data-r="user">
+                    <span class="nav-icon" aria-hidden="true">◉</span>
+                    <span>USER / FAN</span>
+                </button>
+                <button class="nav-item role" type="button" data-r="staff">
+                    <span class="nav-icon" aria-hidden="true">◌</span>
+                    <span>STAFF</span>
+                </button>
+                <button class="nav-item role" type="button" data-r="admin">
+                    <span class="nav-icon" aria-hidden="true">◌</span>
+                    <span>ADMIN</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="copyright">© 2026 K-Tix Assist</div>
+                <div class="subtitle">Secure ticket management</div>
             </div>
-            <div class="role" data-r="admin">
-                <span class="role-icon">🛡️</span>
-                <span class="role-text">ADMIN</span>
-            </div>
-            <a class="side-back" href="index.html">← Back to Home</a>
         </aside>
 
-        <!-- Login Form -->
-        <div class="login-main">
-            <form class="card" id="lf" novalidate>
-                <h2 id="lt" style="margin:0 0 4px">USER / FAN LOGIN</h2>
-                <p class="muted" style="margin-bottom:18px">Sign in to continue</p>
-                <label id="ll">Email Address / Username</label>
-                <input id="id" autocomplete="username">
-                <label>Password</label>
-                <div class="pw">
-                    <input id="pw" type="password">
-                    <button type="button" class="ghost" id="eye">Show</button>
+        <main class="login-main-panel">
+            <header class="portal-header">
+                <div class="portal-title">K-Tix Assist</div>
+                <button class="secure-button" type="button">Secure Portal</button>
+            </header>
+
+            <section class="login-panel" aria-label="Login form">
+                <div class="login-card">
+                    <h1>Welcome Back</h1>
+                    <p class="login-subtitle"><span id="lt">USER / FAN LOGIN</span> · Sign in to your K-Tix Assist account</p>
+
+                    <form id="lf" novalidate>
+                        <div class="field-group">
+                            <label id="ll" for="id">Email Address / Username</label>
+                            <input id="id" type="text" autocomplete="username" placeholder="you@example.com" />
+                        </div>
+
+                        <div class="field-group">
+                            <label for="pw">Password</label>
+                            <div class="password-wrap">
+                                <input id="pw" type="password" autocomplete="current-password" />
+                                <button class="password-toggle" id="eye" type="button" aria-label="Show password">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 5c5.1 0 9.4 4.6 10.8 7-1.4 2.4-5.7 7-10.8 7S2.6 14.4 1.2 12C2.6 9.6 6.9 5 12 5zm0 2.2A4.8 4.8 0 1 0 12 16.2 4.8 4.8 0 0 0 12 7.2zm0 2.1A2.7 2.7 0 1 1 12 14.7 2.7 2.7 0 0 1 12 9.3z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-row">
+                            <label class="checkbox-label">
+                                <input id="rm" type="checkbox" />
+                                <span>Remember me on this device</span>
+                            </label>
+                        </div>
+
+                        <div class="checkbox-row sub-row">
+                            <label class="checkbox-label">
+                                <input type="checkbox" />
+                                <span>I accept the <a href="privacy-policy.html">Terms of Service</a> &amp; <a href="privacy-policy.html">Privacy Policy</a></span>
+                            </label>
+                        </div>
+
+                        <button class="sign-in-button" type="submit">Sign In</button>
+
+                        <div class="err" id="er" role="alert"></div>
+                        <div class="form-links">
+                            <a href="forgot-password.html">Forgot password?</a>
+                            <span id="su"> · <a href="register.html">Create account</a></span>
+                        </div>
+                        <p class="demo-hint" id="demo"></p>
+                    </form>
                 </div>
-                <label style="font-weight:400"><input type="checkbox" id="rm"> Remember Me</label>
-                <div class="err" id="er"></div>
-                <button class="btn full">LOGIN</button>
-                <p style="margin-top:14px"><a href="forgot-password.html" style="color:var(--pri)">Forgot Password?</a></p>
-                <p id="su" style="margin-top:8px">Don't have an account? <a href="register.html"
-                        style="color:var(--pri);font-weight:600">Sign Up</a></p>
-                <p class="muted" id="demo" style="font-size:.78rem;margin-top:12px"></p>
-            </form>
-        </div>
+            </section>
+        </main>
     </div>
     <script src="js/main.js"></script>
     <script src="js/auth.js"></script>

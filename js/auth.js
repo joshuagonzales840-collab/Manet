@@ -3,7 +3,7 @@ const ff=$('#ff');if(ff)ff.onsubmit=e=>{e.preventDefault();if(!$('#fe').value.tr
 if($('#lf')){let role='user';const saved=JSON.parse(localStorage.rem||'null');
 function pick(r){role=r;$$('.role').forEach(x=>x.classList.toggle('on',x.dataset.r==r));$('#lt').textContent=cfg[r][0];$('#ll').textContent=cfg[r][1];$('#demo').textContent=cfg[r][2];$('#su').hidden=r!='user';$('#er').textContent='';if(saved&&saved.role==r){$('#id').value=saved.id;$('#rm').checked=1}else{$('#id').value='';$('#rm').checked=0}}
 $$('.role').forEach(x=>x.onclick=()=>pick(x.dataset.r));pick(saved?saved.role:'user');
-$('#eye').onclick=()=>{const p=$('#pw');p.type=p.type=='password'?'text':'password';$('#eye').textContent=p.type=='password'?'Show':'Hide'};
+$('#eye').onclick=()=>{const p=$('#pw');p.type=p.type=='password'?'text':'password';$('#eye').setAttribute('aria-label',p.type=='password'?'Show password':'Hide password')};
 $('#lf').onsubmit=e=>{e.preventDefault();const id=$('#id').value.trim().toLowerCase(),pw=$('#pw').value;if(!id||!pw)return $('#er').textContent='Please fill in all fields.';
 if($('#rm').checked)localStorage.rem=JSON.stringify({role,id});else localStorage.removeItem('rem');
 if(role=='user'){const u=DB.users.find(u=>(u.username==id||u.email==id)&&u.pw==pw);if(!u)return $('#er').textContent='Invalid credentials.';if(!u.active)return $('#er').textContent='Account deactivated.';setS({role,username:u.username,name:u.name});

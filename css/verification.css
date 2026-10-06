@@ -1,2 +1,96 @@
-/* verification page-specific styles (shared theme in style.css) */
-.face{width:230px;height:290px;margin:16px auto;border:3px dashed var(--pri2);border-radius:50%;display:flex;align-items:center;justify-content:center;background:#1a1530;color:#fff;text-align:center}.face.scan{border-style:solid;border-color:var(--pink);animation:p 1s infinite}@keyframes p{50%{box-shadow:0 0 30px var(--pink)}}.pol{max-height:150px;overflow:auto;margin-bottom:12px;padding:10px;background:#faf9ff;border-radius:10px;font-size:.85rem}
+body.verification-page {
+  min-height: 100vh;
+  background: #edf1f4;
+  color: #1d2a38;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.verification-page .register-panel {
+  padding-top: 42px;
+}
+
+body.verification-page .register-card {
+  width: min(100%, 500px);
+}
+
+body.verification-page .status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+body.verification-page .tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #e7f8ee;
+  color: #17734a;
+}
+
+body.verification-page .tag.Pending {
+  background: #fff8dc;
+  color: #9d6506;
+}
+
+body.verification-page .tag.Verified {
+  background: #e7f8ee;
+  color: #17734a;
+}
+
+body.verification-page .tag.Rejected {
+  background: #ffe9e9;
+  color: #b02828;
+}
+
+body.verification-page .drop {
+  position: relative;
+}
+
+body.verification-page .drop input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+body.verification-page .drop .pv {
+  width: 100%;
+}
+
+body.verification-page .drop .pv img {
+  width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+body.verification-page .capture-frame {
+  background: linear-gradient(180deg, rgba(11, 17, 23, 0.9), rgba(30, 36, 42, 0.9));
+}
+
+body.verification-page .capture-frame::after {
+  content: "";
+  position: absolute;
+  inset: 18% 22% auto 22%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+  display: block;
+}
+
+body.verification-page .capture-frame.scan {
+  box-shadow: 0 0 0 4px rgba(68, 190, 255, 0.12), inset 0 0 0 10px rgba(255, 255, 255, 0.04);
+}
+
+body.verification-page .capture-progress i {
+  transition: width 0.2s ease;
+}
+

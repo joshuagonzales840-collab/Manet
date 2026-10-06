@@ -9,22 +9,22 @@
     <link rel="stylesheet" href="css/verification.css">
 </head>
 
-<body>
-    <div class="auth" style="max-width:640px"><a class="logo" href="index.html" style="text-align:center">K-Tix
-            <b>Assist</b></a>
+<body class="verification-page">
+    <main class="auth verification-auth">
+        <a class="logo verification-brand" href="index.html">K-Tix <b>Assist</b></a>
         <div class="steps"><span class="done">Registered</span><span class="done">Valid ID</span><span
                 class="on">Face</span><span>Policies</span></div>
-        <h2 style="text-align:center;margin:0">Facial Verification</h2>
-        <p class="muted" style="text-align:center">To protect your account and ticket transactions, please complete
+        <h1 class="verification-title">Facial Verification</h1>
+        <p class="verification-subtitle">To protect your account and ticket transactions, please complete
             facial verification.</p>
-        <div class="card" style="text-align:center">
+        <div class="card verification-card face-card">
             <div class="face" id="fc">📷<br>Camera preview</div>
             <div class="bar"><i id="pg" style="width:0"></i></div>
             <p id="fm" style="margin:12px 0">Center your face in the frame, remove glasses/masks, use good lighting.</p>
             <button class="btn" id="sv">Start Facial Verification</button> <button class="btn out" id="rt" hidden
                 style="color:var(--pri)">Retry</button> <button class="btn ok" id="go" hidden>Continue</button>
         </div>
-    </div>
+    </main>
     <script src="js/main.js"></script>
     <script src="js/verification.js"></script>
 </body>

@@ -4,27 +4,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Sign Up | K-Tix Assist</title>
+    <title>Create Account | K-Tix Assist</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
-<body>
-    <div class="auth" style="max-width:640px"><a class="logo" href="index.html" style="text-align:center">K-Tix
-            <b>Assist</b></a>
-        <h2 style="text-align:center;margin:0">Create Your K-Tix Assist Account</h2>
-        <form class="card" id="rf" novalidate><label>Full Name</label><input id="fn"><label>Username</label><input
-                id="un"><label>Email Address</label><input id="em" type="email"><label>Mobile Number</label><input
-                id="mb" type="tel"><label>Date of Birth</label><input id="db" type="date"><label>Address</label><input
-                id="ad"><label>Password</label><input id="p1" type="password"><label>Confirm Password</label><input
-                id="p2" type="password">
-            <div class="err" id="er"></div><button class="btn full">CREATE ACCOUNT</button>
-            <p style="margin-top:12px">Already have an account? <a href="login.html"
-                    style="color:var(--pri);font-weight:600">Login</a></p>
-        </form>
+<body class="auth-page">
+    <div class="login-shell">
+        <aside class="login-sidebar" aria-label="Authentication navigation">
+            <a class="sidebar-header" href="index.html">
+                <span class="brand-mark" aria-hidden="true"></span>
+                <span class="brand-name">K-Tix Assist</span>
+            </a>
+
+            <div class="auth-nav-label">AUTHENTICATION</div>
+            <nav class="auth-nav" aria-label="Authentication options">
+                <a class="nav-item" href="login.html">
+                    <span class="nav-icon" aria-hidden="true">◉</span>
+                    <span>Login</span>
+                </a>
+                <a class="nav-item active" href="register.html" aria-current="page">
+                    <span class="nav-icon" aria-hidden="true">◌</span>
+                    <span>Sign Up</span>
+                </a>
+                <a class="nav-item" href="forgot-password.html">
+                    <span class="nav-icon" aria-hidden="true">◌</span>
+                    <span>Forgot Password</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="copyright">© 2026 K-Tix Assist</div>
+                <div class="subtitle">Secure ticket management</div>
+            </div>
+        </aside>
+
+        <main class="login-main-panel">
+            <header class="portal-header">
+                <div class="portal-title">K-Tix Assist</div>
+                <span class="secure-button">Secure Portal</span>
+            </header>
+
+            <section class="register-panel" aria-label="Create account form">
+                <div class="register-card">
+                    <div class="back-row">
+                        <button class="back-link" type="button" onclick="history.back()">← Back</button>
+                        <div class="step-dots" aria-label="Progress">
+                            <span class="active"></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <h1>Create Account</h1>
+                    <p class="login-subtitle">Step 1 of 3 · Your details</p>
+
+                    <form id="rf" novalidate>
+                        <div class="field-group">
+                            <label for="fn">Full Name <span>*</span></label>
+                            <input id="fn" type="text" autocomplete="name" placeholder="Juan Dela Cruz">
+                        </div>
+                        <div class="field-group">
+                            <label for="un">Username <span>*</span></label>
+                            <input id="un" type="text" autocomplete="username" placeholder="your_username">
+                        </div>
+                        <div class="field-group">
+                            <label for="em">Email Address <span>*</span></label>
+                            <input id="em" type="email" autocomplete="email" placeholder="you@example.com">
+                        </div>
+                        <div class="field-group">
+                            <label for="mb">Mobile Number <span>*</span></label>
+                            <input id="mb" type="tel" autocomplete="tel" placeholder="09123456789">
+                        </div>
+                        <div class="field-group">
+                            <label for="db">Date of Birth <span>*</span></label>
+                            <input id="db" type="date" autocomplete="bday">
+                        </div>
+                        <div class="field-group">
+                            <label for="ad">Address <span>*</span></label>
+                            <input id="ad" type="text" autocomplete="street-address" placeholder="Street, city, province">
+                        </div>
+                        <div class="field-group">
+                            <label for="p1">Password <span>*</span></label>
+                            <input id="p1" type="password" autocomplete="new-password" placeholder="Min. 8 characters">
+                        </div>
+                        <div class="field-group">
+                            <label for="p2">Confirm Password <span>*</span></label>
+                            <input id="p2" type="password" autocomplete="new-password" placeholder="Re-enter password">
+                        </div>
+
+                        <div class="checkbox-row sub-row">
+                            <label class="checkbox-label">
+                                <input type="checkbox" />
+                                <span>I accept the <a href="privacy-policy.html">Terms of Service</a> &amp; <a href="privacy-policy.html">Privacy Policy</a>. Denying prevents account creation.</span>
+                            </label>
+                        </div>
+
+                        <div class="err" id="er" role="alert"></div>
+                        <button class="sign-in-button" type="submit">Continue →</button>
+                        <p class="register-login-link">Already have an account? <a href="login.html">Sign in</a></p>
+                    </form>
+                </div>
+            </section>
+        </main>
     </div>
+
     <script src="js/main.js"></script>
     <script src="js/register.js"></script>
 </body>
 
 </html>
+
