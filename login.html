@@ -1,102 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Login | K-Tix Assist</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>K-Tix Assist | Login</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/login.css">
 </head>
+<body>
+  <div class="login-layout">
+    <aside class="login-side">
+      <a class="logo" href="index.html">
+        <span class="logo-icon">🎫</span>
+        <span class="logo-text">K-Tix Assist<br><small>Secure Portal</small></span>
+      </a>
+      <p class="side-label">AUTHENTICATION</p>
+      <div class="side-nav">
+        <button type="button" class="side-item on" data-view="login"><span class="side-ico">→</span> Login</button>
+        <button type="button" class="side-item" data-view="signup"><span class="side-ico">👤</span> Sign Up</button>
+        <button type="button" class="side-item" data-view="forgot"><span class="side-ico">🔑</span> Forgot Password</button>
+      </div>
+      <a class="side-back" href="index.html">← Back to Home</a>
+      <p class="side-footer">© 2026 K-Tix Assist<br>Secure ticket management</p>
+    </aside>
 
-<body class="auth-page">
-    <div class="login-shell">
-        <aside class="login-sidebar" aria-label="Login navigation">
-            <div class="sidebar-header">
-                <div class="brand-mark" aria-hidden="true"></div>
-                <div class="brand-name">K-Tix Assist</div>
+    <div class="login-main">
+      <header class="login-top">
+        <span class="top-brand">K-TIX ASSIST</span>
+        <span class="secure-badge">🔒 Secure Portal</span>
+      </header>
+
+      <div class="view-wrap">
+
+        <!-- LOGIN -->
+        <div class="view" id="view-login">
+          <form class="card login-card" id="lf" novalidate>
+            <h2 id="lt">Welcome Back</h2>
+            <p class="muted sub" id="ls">Sign in to your K-Tix Assist account</p>
+            <label id="ll">Email Address <span class="req">*</span></label>
+            <input id="id" type="text" placeholder="you@example.com" autocomplete="username">
+            <label>Password <span class="req">*</span></label>
+            <div class="pw">
+              <input id="pw" type="password" placeholder="••••••••" autocomplete="current-password">
+              <button type="button" class="ghost eye-btn" id="eye">👁</button>
             </div>
-
-            <div class="auth-nav-label">CHOOSE LOGIN TYPE</div>
-            <nav class="auth-nav" aria-label="Authentication options">
-                <button class="nav-item role on" type="button" data-r="user">
-                    <span class="nav-icon" aria-hidden="true">◉</span>
-                    <span>USER / FAN</span>
-                </button>
-                <button class="nav-item role" type="button" data-r="staff">
-                    <span class="nav-icon" aria-hidden="true">◌</span>
-                    <span>STAFF</span>
-                </button>
-                <button class="nav-item role" type="button" data-r="admin">
-                    <span class="nav-icon" aria-hidden="true">◌</span>
-                    <span>ADMIN</span>
-                </button>
-            </nav>
-
-            <div class="sidebar-footer">
-                <div class="copyright">© 2026 K-Tix Assist</div>
-                <div class="subtitle">Secure ticket management</div>
+            <div class="checks">
+              <label class="check-label"><input type="checkbox" id="rm"> Remember me on this device</label>
+              <label class="check-label" id="terms-wrap"><input type="checkbox" id="terms"> I accept the <a href="privacy-policy.html" target="_blank">Terms of Service &amp; Privacy Policy</a></label>
             </div>
-        </aside>
+            <div class="err" id="er"></div>
+            <button type="submit" class="btn full sign-btn">→ Sign In</button>
+            <p class="footer-links">
+              <a href="#" data-view="forgot">Forgot password?</a>
+              <span class="sep">·</span>
+              <a href="#" data-view="signup" id="su">Create account</a>
+            </p>
+            <p class="muted demo" id="demo"></p>
+          </form>
+        </div>
 
-        <main class="login-main-panel">
-            <header class="portal-header">
-                <div class="portal-title">K-Tix Assist</div>
-                <button class="secure-button" type="button">Secure Portal</button>
-            </header>
+        <!-- FORGOT -->
+        <div class="view" id="view-forgot" hidden>
+          <form class="card login-card" id="ff" novalidate>
+            <button type="button" class="back-link" data-view="login">← Back</button>
+            <h2>Reset Password</h2>
+            <p class="muted sub">Enter your email and we'll send a reset link</p>
+            <label>Email Address <span class="req">*</span></label>
+            <input id="fe" type="email" placeholder="you@example.com">
+            <div class="err" id="fer"></div>
+            <button type="submit" class="btn full sign-btn">✈ Send Reset Link</button>
+            <p class="footer-links"><a href="#" data-view="login">Back to Login</a></p>
+          </form>
+        </div>
 
-            <section class="login-panel" aria-label="Login form">
-                <div class="login-card">
-                    <h1>Welcome Back</h1>
-                    <p class="login-subtitle"><span id="lt">USER / FAN LOGIN</span> · Sign in to your K-Tix Assist account</p>
+        <!-- SIGNUP STEP 1 -->
+        <div class="view" id="view-signup" hidden>
+          <form class="card login-card" id="sf1" novalidate>
+            <button type="button" class="back-link" data-view="login">← Back</button>
+            <div class="steps-dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+            <h2>Create Account</h2>
+            <p class="muted sub">Step 1 of 3 · Your details</p>
+            <label>Full Name <span class="req">*</span></label>
+            <input id="s-fn" type="text" placeholder="Juan Dela Cruz">
+            <label>Email Address <span class="req">*</span></label>
+            <input id="s-em" type="email" placeholder="you@example.com">
+            <label>Password <span class="req">*</span></label>
+            <div class="pw">
+              <input id="s-pw" type="password" placeholder="Min. 8 characters">
+              <button type="button" class="ghost eye-btn" id="s-eye">👁</button>
+            </div>
+            <label>Confirm Password <span class="req">*</span></label>
+            <input id="s-pw2" type="password" placeholder="Re-enter password">
+            <label class="check-label" style="margin-top:14px">
+              <input type="checkbox" id="s-terms"> I accept the <a href="privacy-policy.html" target="_blank">Terms of Service &amp; Privacy Policy</a>. Denying prevents account creation.
+            </label>
+            <div class="err" id="s-er"></div>
+            <button type="submit" class="btn full sign-btn">Continue →</button>
+          </form>
+        </div>
 
-                    <form id="lf" novalidate>
-                        <div class="field-group">
-                            <label id="ll" for="id">Email Address / Username</label>
-                            <input id="id" type="text" autocomplete="username" placeholder="you@example.com" />
-                        </div>
+        <!-- SIGNUP STEP 2: ID -->
+        <div class="view" id="view-id" hidden>
+          <div class="card login-card id-card">
+            <button type="button" class="back-link" data-view="signup">← Back</button>
+            <div class="steps-dots"><span class="dot done"></span><span class="dot on"></span><span class="dot"></span></div>
+            <h2>Valid ID Upload</h2>
+            <p class="muted sub">Step 2 of 3 · Government-issued ID required</p>
+            <div class="ok-banner" id="id-banner" hidden>✓ ID received. Face biometrics will be checked in the next step.</div>
+            <p class="hint">Select your ID type, then upload or capture a clear photo of your ID.</p>
+            <label>Valid ID Type <span class="req">*</span></label>
+            <div class="id-types" id="id-types">
+              <button type="button" class="id-type" data-type="National ID">🪪 National ID</button>
+              <button type="button" class="id-type" data-type="Passport">📘 Passport</button>
+              <button type="button" class="id-type on" data-type="Driver's License">🚗 Driver's License</button>
+              <button type="button" class="id-type" data-type="PhilSys ID">🪪 PhilSys ID</button>
+            </div>
+            <div class="drop-actions">
+              <button type="button" class="btn out sm" id="btn-drop">☁ Drop ID here</button>
+              <button type="button" class="btn out sm" id="btn-cam">📷 Use camera</button>
+            </div>
+            <div class="drop-zone" id="drop-zone">
+              <div class="drop-inner">
+                <span class="drop-ico">🪪</span>
+                <p>Drop your ID here or click to browse<br><small>JPG or PNG · Max 5MB</small></p>
+                <p class="file-name" id="file-name" hidden></p>
+              </div>
+              <input type="file" id="id-file" accept="image/jpeg,image/png" hidden>
+            </div>
+            <div class="id-result" id="id-result" hidden>
+              <p class="ok-line">✓ ID received</p>
+              <div class="id-meta">
+                <div><span class="muted">Full Name:</span><br><b id="id-name">—</b></div>
+                <div><span class="muted">ID Number:</span><br><b id="id-num">—</b></div>
+                <div><span class="muted">Type:</span><br><b id="id-type-label">—</b></div>
+                <div><span class="muted">Source:</span><br><b>Upload</b></div>
+              </div>
+              <p class="privacy-note">🔒 ID is processed privately. Face biometrics checked in the next step.</p>
+            </div>
+            <div class="err" id="id-er"></div>
+            <button type="button" class="btn full sign-btn" id="id-continue" disabled>Continue →</button>
+          </div>
+        </div>
 
-                        <div class="field-group">
-                            <label for="pw">Password</label>
-                            <div class="password-wrap">
-                                <input id="pw" type="password" autocomplete="current-password" />
-                                <button class="password-toggle" id="eye" type="button" aria-label="Show password">
-                                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M12 5c5.1 0 9.4 4.6 10.8 7-1.4 2.4-5.7 7-10.8 7S2.6 14.4 1.2 12C2.6 9.6 6.9 5 12 5zm0 2.2A4.8 4.8 0 1 0 12 16.2 4.8 4.8 0 0 0 12 7.2zm0 2.1A2.7 2.7 0 1 1 12 14.7 2.7 2.7 0 0 1 12 9.3z"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
+        <!-- SIGNUP STEP 3: FACE -->
+        <div class="view" id="view-face" hidden>
+          <div class="card login-card face-card">
+            <button type="button" class="back-link" data-view="id">← Back</button>
+            <div class="steps-dots"><span class="dot done"></span><span class="dot done"></span><span class="dot on"></span></div>
+            <h2>Facial Recognition</h2>
+            <p class="muted sub">Step 3 of 3 · Match live face to ID</p>
+            <p class="hint">Capture your face for your customer profile. Center your face in the frame, then tap Capture.</p>
+            <div class="face-preview" id="face-box">
+              <div class="face-oval" id="face-oval">
+                <span id="face-placeholder">📷<br>Camera preview</span>
+                <video id="face-video" autoplay playsinline muted hidden></video>
+                <canvas id="face-canvas" hidden></canvas>
+              </div>
+            </div>
+            <button type="button" class="btn sign-btn" id="btn-capture">📷 Capture Face</button>
+            <p class="align-hint" id="align-hint">✨ Align face in the oval · good lighting</p>
+            <div class="progress-bar"><i id="face-pg" style="width:0%"></i></div>
+            <p class="muted" id="face-status" style="text-align:center;margin-top:8px">Face capture</p>
+            <div class="face-actions">
+              <button type="button" class="btn out" data-view="id">← Back</button>
+              <button type="button" class="btn" id="btn-create" disabled>👤 Create Account</button>
+            </div>
+          </div>
+        </div>
 
-                        <div class="checkbox-row">
-                            <label class="checkbox-label">
-                                <input id="rm" type="checkbox" />
-                                <span>Remember me on this device</span>
-                            </label>
-                        </div>
-
-                        <div class="checkbox-row sub-row">
-                            <label class="checkbox-label">
-                                <input type="checkbox" />
-                                <span>I accept the <a href="privacy-policy.html">Terms of Service</a> &amp; <a href="privacy-policy.html">Privacy Policy</a></span>
-                            </label>
-                        </div>
-
-                        <button class="sign-in-button" type="submit">Sign In</button>
-
-                        <div class="err" id="er" role="alert"></div>
-                        <div class="form-links">
-                            <a href="forgot-password.html">Forgot password?</a>
-                            <span id="su"> · <a href="register.html">Create account</a></span>
-                        </div>
-                        <p class="demo-hint" id="demo"></p>
-                    </form>
-                </div>
-            </section>
-        </main>
+      </div>
     </div>
-    <script src="js/main.js"></script>
-    <script src="js/auth.js"></script>
+  </div>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
 </body>
-
 </html>
