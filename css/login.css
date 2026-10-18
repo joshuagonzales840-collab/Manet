@@ -656,39 +656,3 @@ body {
   cursor: pointer;
   font-family: inherit;
 }
-
-/* ===== Background video ===== */
-.bg-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Dark purple tint so the card and text stay readable */
-.bg-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(10, 10, 18, 0.15), rgba(10, 10, 18, 0.55)),
-    linear-gradient(180deg, rgba(59, 26, 122, 0.15), rgba(10, 10, 18, 0.3));
-}
-
-/* Keep the content above the video */
-.login-main {
-  position: relative;
-  z-index: 1;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Skip video for users who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .bg-video { display: none; }
-}

@@ -1,7 +1,7 @@
 /* K-Tix Assist — Secure Portal Auth */
 
 const cfg = {
-    user: ['Welcome Back', 'Email Address', 'fan@ktix.com / fan123 (verified) — or sign up']
+    user: ['Login', 'Email Address', 'fan@ktix.com / fan123 (verified) — or sign up']
 };
 
 let role = 'user';
