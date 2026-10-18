@@ -9,7 +9,14 @@
 </head>
 <body>
   <div class="login-layout">
-    <aside class="login-side">
+    <!-- Background video -->
+    <video class="bg-video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="concert-bg.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay" style="position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(59,26,122,.15),rgba(10,10,18,.45))"></div>
+
+    <!-- Sidebar kept in DOM for JS but hidden via CSS -->
+    <aside class="login-side" aria-hidden="true">
       <a class="logo" href="index.html">
         <span class="logo-icon">🎫</span>
         <span class="logo-text">K-Tix Assist<br><small>Secure Portal</small></span>
@@ -24,7 +31,7 @@
       <p class="side-footer">© 2026 K-Tix Assist<br>Secure ticket management</p>
     </aside>
 
-    <div class="login-main">
+    <div class="login-main" style="position:relative;z-index:1;flex:1;display:flex;flex-direction:column">
       <header class="login-top">
         <span class="top-brand">K-TIX ASSIST</span>
         <span class="secure-badge">🔒 Secure Portal</span>
@@ -35,7 +42,7 @@
         <!-- LOGIN -->
         <div class="view" id="view-login">
           <form class="card login-card" id="lf" novalidate>
-            <h2 id="lt">Welcome Back</h2>
+            <h2 id="lt">LOGIN</h2>
             <p class="muted sub" id="ls">Sign in to your K-Tix Assist account</p>
             <label id="ll">Email Address <span class="req">*</span></label>
             <input id="id" type="text" placeholder="you@example.com" autocomplete="username">
