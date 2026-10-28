@@ -1,8 +1,6 @@
 /* K-Tix Assist — Secure Portal Auth */
 
-const cfg = {
-    user: ['Login', 'Email Address', 'fan@ktix.com / fan123 (verified) — or sign up']
-};
+
 
 let role = 'user';
 let signupData = {};

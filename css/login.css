@@ -87,26 +87,37 @@ body {
   z-index: 1;
 }
 
+.view-wrap .view {
+  width: 100%;
+  max-width: 480px;
+}
+
 /* Hide the old sidebar completely */
 .login-side {
   display: none !important;
 }
 
-/* Card */
-.login-card {
-  width: 100%;
-  max-width: 400px;
-  padding: 36px 32px 28px;
-  border-radius: 20px;
-  background: rgba(18, 18, 31, 0.92);
-  border: 1px solid var(--card-border);
+/* ===== Card container =====
+   Overrides shared style.css .card rules so login stays dark */
+.login-layout .card,
+.login-layout .card.login-card {
+  width: 100% !important;
+  max-width: 480px !important;
+  margin: 0 auto;
+  padding: 40px 40px 32px !important;
+  border-radius: 22px !important;
+  background: rgba(18, 18, 31, 0.92) !important;
+  color: #e8e6f0 !important;
+  border: 1px solid rgba(124, 58, 237, 0.25) !important;
   box-shadow:
     0 0 0 1px rgba(124, 58, 237, 0.12),
     0 20px 50px -12px rgba(0, 0, 0, 0.6),
-    0 0 60px -10px rgba(124, 58, 237, 0.25);
-  backdrop-filter: blur(16px);
-  animation: up 0.45s ease both;
+    0 0 60px -10px rgba(124, 58, 237, 0.25) !important;
 }
+
+/* ID + face steps keep their slightly narrower widths */
+.login-layout .card.id-card   { max-width: 460px !important; }
+.login-layout .card.face-card { max-width: 440px !important; }
 
 @keyframes up {
   from {
@@ -197,7 +208,7 @@ body {
 
 /* Checkboxes */
 .checks {
-  margin-top: 16px;
+  margin-top: 14px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -237,9 +248,13 @@ body {
 .err {
   color: #f87171;
   font-size: 0.82rem;
-  min-height: 1.2em;
-  margin-top: 10px;
+  min-height: 0;
+  margin-top: 8px;
   text-align: center;
+}
+
+.err:empty {
+  display: none;
 }
 
 /* Sign In button — gradient purple → pink */
@@ -279,10 +294,14 @@ body {
   transform: none;
 }
 
-/* Footer links */
+/* Footer links — centered together */
 .footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 18px;
   font-size: 0.9rem;
 }
 
@@ -307,6 +326,11 @@ body {
   margin-top: 14px !important;
   text-align: center;
   color: #6b6685 !important;
+}
+
+/* Hide the empty demo line so it doesn't add bottom space */
+.demo:empty {
+  display: none;
 }
 
 /* Back link (for other views) */
@@ -358,11 +382,6 @@ body {
 }
 
 /* ID / Face cards (keep functional, dark theme) */
-.id-card,
-.face-card {
-  max-width: 460px;
-}
-
 .ok-banner {
   background: #14532d;
   color: #86efac;
@@ -484,7 +503,6 @@ body {
 }
 
 .face-card {
-  max-width: 440px;
   text-align: center;
 }
 
@@ -607,6 +625,18 @@ body {
   width: 100%;
 }
 
+.login-layout .muted {
+  color: #9b96b0 !important;
+}
+
+.login-layout .ghost {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+}
+
 /* Responsive */
 @media (max-width: 720px) {
   .login-top {
@@ -617,8 +647,9 @@ body {
     padding: 16px 12px 40px;
   }
 
-  .login-card {
-    padding: 28px 20px 24px;
+  .login-layout .card,
+  .login-layout .card.login-card {
+    padding: 32px 22px 28px !important;
   }
 
   .id-types {
@@ -631,28 +662,4 @@ body {
     animation: none !important;
     transition: none !important;
   }
-}
-
-/* Override shared style.css .card rules so login stays dark */
-.login-card.card,
-.login-layout .card {
-  background: rgba(18, 18, 31, 0.92) !important;
-  color: #e8e6f0 !important;
-  border: 1px solid rgba(124, 58, 237, 0.25) !important;
-  box-shadow:
-    0 0 0 1px rgba(124, 58, 237, 0.12),
-    0 20px 50px -12px rgba(0, 0, 0, 0.6),
-    0 0 60px -10px rgba(124, 58, 237, 0.25) !important;
-}
-
-.login-layout .muted {
-  color: #9b96b0 !important;
-}
-
-.login-layout .ghost {
-  background: none;
-  border: 0;
-  color: inherit;
-  cursor: pointer;
-  font-family: inherit;
 }
