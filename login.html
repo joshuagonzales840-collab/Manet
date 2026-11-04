@@ -10,7 +10,11 @@
 <body>
   <div class="login-layout">
 
-    <div class="bg-overlay" style="position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(76,29,149,.12),rgba(10,10,18,.12))"></div>
+    <video class="bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="Bideo-bg.mp4" type="video/mp4">
+    </video>
+
+    <div class="bg-overlay" style="position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(76,29,149,.35),rgba(10,10,18,.55))"></div>
 
     <!-- Sidebar kept in DOM for JS but hidden via CSS -->
     <aside class="login-side" aria-hidden="true">
