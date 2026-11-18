@@ -1,49 +1,34 @@
 # K-Tix Assist — Authentication System
 
-PHP + JSON storage · Real SMTP email · Face ID (1:1) · Strict ID validation
+PHP + MySQL storage · Real SMTP email · Face ID (1:1) · Strict ID validation
 
-## Deploy on Vercel (recommended)
+## Local Laragon setup
 
-1. Push this repo to GitHub
-2. Import the project in [vercel.com](https://vercel.com) → New Project
-3. Framework Preset: **Other**
-4. Deploy
+1. Put this folder under `C:\laragon\www`.
+2. Start Apache and MySQL in Laragon.
+3. Open `http://localhost/`.
 
-### Custom domain (intern7zsa.site)
+On its first request, the app creates the `ktix_assist` database and `users` table using Laragon's default local MySQL account (`root`, no password). Existing users in the previous JSON store are imported once. To use different settings, set `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, and `DB_PASSWORD` in the PHP environment.
 
-1. Vercel → Project → Settings → Domains → Add `intern7zsa.site`
-2. At your DNS provider:
-   - **Remove** any CNAME that points to GitHub Pages
-   - Add the CNAME / A records Vercel shows you
-3. Wait 1–5 minutes for DNS
+Passwords are stored as PHP password hashes, never as plaintext. The users table also stores account IDs, email, roles, verification/reset state, identity-document details, and face-profile data required by the app. Keep this database private; use a restricted database account and HTTPS before deployment.
 
-### Important notes for production / custom domain
+## Deployment notes
 
-- **No demo accounts.** Users are created only through the real signup flow (government ID + face verification + email code).
-- On Vercel, data & uploads use `/tmp` (ephemeral). Prefer a host with persistent storage (or a database) so accounts are not lost on cold starts.
-- Use **HTTPS** so camera access works in the browser.
-- GitHub Pages cannot run PHP. Deploy this project to Vercel or another PHP-capable host.
-
-### SMTP
-
-Configure `SMTP_ENABLED=true`, `SMTP_USER`, `SMTP_PASS`, and optionally `SMTP_FROM_EMAIL` as environment variables in your hosting provider (for example, a Gmail App Password for `SMTP_PASS`). Do not commit credentials to the repository.
-
-## Local XAMPP
-
-1. Copy folder into `htdocs`
-2. Make `data/` and `uploads/` writable
-3. Open `http://localhost/your-folder/`
+- Do not deploy with Laragon's default MySQL `root` account.
+- Use a persistent MySQL service and set the database environment variables above.
+- Use HTTPS so camera access works in the browser.
+- Configure SMTP with the `SMTP_USER` and `SMTP_PASS` environment variables.
 
 ## Project structure
 
-```
+```text
 /
 ├── api/
-│   ├── api.php              ← main API
-│   ├── index.php            ← login page
+│   ├── api.php              # Main API
+│   ├── index.php            # Login page
 │   ├── dashboard-*.php
 │   └── includes/
-│       ├── config.php       ← APP_ROOT, /tmp paths, SMTP
+│       ├── config.php       # MySQL, APP_ROOT, paths, SMTP
 │       └── mailer.php
 ├── css/  js/  lib/  data/  uploads/
 └── vercel.json

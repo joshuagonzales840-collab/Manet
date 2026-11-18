@@ -1,6 +1,6 @@
 <?php
 /**
- * K-Tix Assist - API (JSON storage)
+ * K-Tix Assist - API (MySQL storage)
  * Real email verification + strict ID validation
  */
 require_once __DIR__ . '/includes/config.php';
@@ -243,9 +243,7 @@ switch ($action) {
         }
 
         $code = (string) random_int(100000, 999999);
-        $users = getUsers();
-        $users[] = [
-            'id' => nextUserId(),
+        createUser([
             'name' => $name,
             'email' => $email,
             'password' => password_hash($password, PASSWORD_DEFAULT),
@@ -266,8 +264,7 @@ switch ($action) {
             'reset_token' => null,
             'reset_expires' => null,
             'created_at' => date('c')
-        ];
-        saveUsers($users);
+        ]);
 
         $sent = sendVerificationEmail($email, $name, $code);
 

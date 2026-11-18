@@ -16,7 +16,7 @@ if (isLoggedIn()) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="auth-page">
-
+ 
 
     <main class="auth-main">
       <header class="auth-header">

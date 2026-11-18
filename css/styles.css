@@ -1466,7 +1466,7 @@ body::before {
   .dashboard-wrapper {
     flex-direction: column;
   }
-
+ 
   .dashboard-sidebar {
     width: 100%;
   }
