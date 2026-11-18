@@ -20,16 +20,15 @@ if (!is_dir(DATA_DIR))  @mkdir(DATA_DIR, 0755, true);
 if (!is_dir(UPLOAD_DIR)) @mkdir(UPLOAD_DIR, 0755, true);
 // ─── EMAIL / SMTP (edit these for real verification emails) ───
 // For Gmail: enable 2FA → create App Password, use smtp.gmail.com port 587
-// For local XAMPP testing without real SMTP, set SMTP_ENABLED to false
-// and codes will still be generated (check server error log / data/last_codes.log)
-define('SMTP_ENABLED', true);
-define('SMTP_HOST', 'smtp.gmail.com');
-define('SMTP_PORT', 587);
-define('SMTP_SECURE', 'tls');          // tls or ssl
-define('SMTP_USER', getenv('SMTP_USER') ?: 'markcyrilpenafiel@gmail.com');
-define('SMTP_PASS', getenv('SMTP_PASS') ?: 'ovjjbvpmmasbxyoh');
-define('SMTP_FROM_EMAIL', 'markcyrilpenafiel@gmail.com');
-define('SMTP_FROM_NAME', 'K-Tix Assist');
+// Configure SMTP with environment variables; credentials must not be committed.
+define('SMTP_ENABLED', getenv('SMTP_ENABLED') === '1');
+define('SMTP_HOST', getenv('SMTP_HOST') ?: 'smtp.gmail.com');
+define('SMTP_PORT', (int)(getenv('SMTP_PORT') ?: 587));
+define('SMTP_SECURE', getenv('SMTP_SECURE') ?: 'tls');
+define('SMTP_USER', getenv('SMTP_USER') ?: '');
+define('SMTP_PASS', getenv('SMTP_PASS') ?: '');
+define('SMTP_FROM_EMAIL', getenv('SMTP_FROM_EMAIL') ?: '');
+define('SMTP_FROM_NAME', getenv('SMTP_FROM_NAME') ?: APP_NAME);
 
 // Face matching threshold (Euclidean distance). 0.58 = moderate
 define('FACE_MATCH_THRESHOLD', 0.58);
