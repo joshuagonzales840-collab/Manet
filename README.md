@@ -1,35 +1,16 @@
-# K-Tix Assist — Authentication System
+# OninInternVariant6 
+http://localhost/Barili/OninInternVariant6/
 
-PHP + MySQL storage · Real SMTP email · Face ID (1:1) · Strict ID validation
 
-## Local Laragon setup
+## Local PHP/MySQL setup (Laragon)
 
-1. Put this folder under `C:\laragon\www`.
-2. Start Apache and MySQL in Laragon.
-3. Open `http://localhost/`.
+1. Put this project folder under Laragon's `www` directory, then start **Apache** and **MySQL**.
+2. Open `http://localhost/Barili/OninInternVariant6/` (do not open the HTML files as `file://` URLs).
+3. In phpMyAdmin, import `database.sql`. It creates the `skate_shop` database and the account/order tables.
+4. The local database defaults are `127.0.0.1`, database `skate_shop`, user `root`, and an empty password. If yours differ, set `SHOP_DB_HOST`, `SHOP_DB_NAME`, `SHOP_DB_USER`, and `SHOP_DB_PASS` in the Apache/PHP environment, then restart Laragon.
+5. To use GCash/PayMongo, configure `PAYMONGO_SECRET_KEY` in the Apache/PHP environment and restart Laragon. Never put this secret in JavaScript or commit it to the project. The PHP cURL extension must be enabled. Rotate the PayMongo secret that was previously embedded in the frontend before using live payments.
+6. To enable store-wide reports, set `SHOP_ADMIN_EMAIL` in the Apache/PHP environment to the email address of the registered administrator account, then restart Laragon. Signed-in customers can view only their own order reports; the configured administrator can view store-wide totals. The Reports page filters by date and its Export PDF button opens the browser print dialog, where you can save the report as a PDF.
 
-On its first request, the app creates the `ktix_assist` database and `users` table using Laragon's default local MySQL account (`root`, no password). Existing users in the previous JSON store are imported once. To use different settings, set `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, and `DB_PASSWORD` in the PHP environment.
+Registration and sign-in use PHP sessions; passwords are stored as hashes. Checkout supports guest orders too. Orders and their item snapshots appear in phpMyAdmin under `orders` and `order_items`; account passwords are in `users`. GCash orders are marked paid only after the server verifies the PayMongo intent and amount. Cash-on-delivery orders are marked unpaid.
 
-Passwords are stored as PHP password hashes, never as plaintext. The users table also stores account IDs, email, roles, verification/reset state, identity-document details, and face-profile data required by the app. Keep this database private; use a restricted database account and HTTPS before deployment.
-
-## Deployment notes
-
-- Do not deploy with Laragon's default MySQL `root` account.
-- Use a persistent MySQL service and set the database environment variables above.
-- Use HTTPS so camera access works in the browser.
-- Configure SMTP with the `SMTP_USER` and `SMTP_PASS` environment variables.
-
-## Project structure
-
-```text
-/
-├── api/
-│   ├── api.php              # Main API
-│   ├── index.php            # Login page
-│   ├── dashboard-*.php
-│   └── includes/
-│       ├── config.php       # MySQL, APP_ROOT, paths, SMTP
-│       └── mailer.php
-├── css/  js/  lib/  data/  uploads/
-└── vercel.json
-```
+The current storefront catalog prices are all placeholder values of ₱1.00. Update both `js/shop.js` and `api/paymongo_helpers.php` when setting real prices; the PHP values are authoritative for saved order totals and PayMongo charges.

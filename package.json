@@ -1,8 +1,8 @@
 {
-  "name": "barili-workspace",
+  "name": "onin-intern-variant6",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "npm --prefix OninInternVariant6 run dev"
+    "dev": "\"C:\\laragon\\bin\\php\\php-8.3.36-Win32-vs16-x64\\php.exe\" -S 127.0.0.1:8080 -t ."
   }
 }

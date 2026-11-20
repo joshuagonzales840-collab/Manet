@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports | Skambordix Skate Shop</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css?v=4">
+    <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/reports.css">
+</head>
+<body>
+    <header class="header-section">
+        <div class="container-fluid">
+            <div class="inner-header">
+                <div class="logo"><a href="index.html">SkambordixSkateShop</a></div>
+                <div class="user-access">
+                    <a data-session-guest href="account.html#register">Register</a>
+                    <a data-session-guest href="account.html#login" class="in">Sign in</a>
+                    <a data-session-logout href="account.html" hidden>Logout</a>
+                </div>
+                <nav class="main-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="categories.html">Shop</a></li>
+                        <li><a href="shopping-cart.html">Shopping Cart</a></li>
+                        <li><a href="check-out.html">Checkout</a></li>
+                        <li><a href="reports.html">Reports</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="reports-page">
+        <div class="reports-heading">
+            <p class="reports-eyebrow">ORDER OVERVIEW</p>
+            <h1>Reports</h1>
+            <p id="reports-scope">Review orders and sales for a selected date range.</p>
+        </div>
+
+        <section id="reports-login" class="reports-notice" hidden>
+            <p>Sign in to view your order report.</p>
+            <a class="reports-button" href="account.html#login">Sign in</a>
+        </section>
+        <p id="reports-message" class="reports-message" role="status" aria-live="polite"></p>
+
+        <section id="reports-content" hidden>
+            <form id="reports-filter" class="reports-filter">
+                <div>
+                    <label for="date-from">From</label>
+                    <input id="date-from" name="from" type="date" required>
+                </div>
+                <div>
+                    <label for="date-to">To</label>
+                    <input id="date-to" name="to" type="date" required>
+                </div>
+                <button class="reports-button" type="submit">Apply filter</button>
+                <button id="export-pdf" class="reports-button reports-button-secondary" type="button">Export PDF</button>
+            </form>
+
+            <div class="reports-summary" aria-label="Order summary">
+                <article class="reports-card">
+                    <p>Orders</p>
+                    <strong id="order-count">0</strong>
+                </article>
+                <article class="reports-card">
+                    <p>Sales (excluding cancelled)</p>
+                    <strong id="sales-total">₱0.00</strong>
+                </article>
+                <article class="reports-card">
+                    <p>Paid sales</p>
+                    <strong id="paid-sales-total">₱0.00</strong>
+                </article>
+            </div>
+
+            <section class="reports-orders">
+                <div class="reports-table-heading">
+                    <h2>Orders</h2>
+                    <span id="report-date-range"></span>
+                </div>
+                <div class="reports-table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Order</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Order status</th>
+                                <th scope="col">Payment</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reports-orders-body"></tbody>
+                    </table>
+                    <p id="reports-empty" class="reports-empty" hidden>No orders found for this date range.</p>
+                </div>
+            </section>
+        </section>
+    </main>
+    <script src="js/reports.js?v=1"></script>
+    <script src="js/session-nav.js?v=1"></script>
+</body>
+</html>
