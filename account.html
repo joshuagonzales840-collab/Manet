@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account | SkambordixSkateShop</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css?v=4">
+    <link rel="stylesheet" href="css/account.css?v=3">
+</head>
+<body>
+    <header class="header-section">
+        <div class="container-fluid">
+            <div class="inner-header">
+                <div class="logo"><a href="index.html">SkambordixSkateShop</a></div>
+                <div class="user-access">
+                    <a data-session-guest href="account.html#register">Register</a>
+                    <a data-session-guest href="account.html#login" class="in">Sign in</a>
+                    <a data-session-logout href="account.html" hidden>Logout</a>
+                </div>
+                <nav class="main-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="categories.html">Shop</a></li>
+                        <li><a href="shopping-cart.html">Shopping Cart</a></li>
+                        <li><a href="check-out.html">Checkout</a></li>
+                        <li><a href="reports.html">Reports</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="account-page container">
+        <h1>Your account</h1>
+        <p>Sign in to your account or create one to save your details for checkout.</p>
+        <p id="account-message" class="account-message" role="status" aria-live="polite"></p>
+
+        <div class="account-switch" role="tablist" aria-label="Account options">
+            <button id="login-tab" class="account-tab is-active" type="button" role="tab"
+                aria-selected="true" aria-controls="login-panel" data-account-tab="login">Sign in</button>
+            <button id="register-tab" class="account-tab" type="button" role="tab"
+                aria-selected="false" aria-controls="register-panel" data-account-tab="register">Create account</button>
+        </div>
+
+        <div class="account-panels">
+            <section id="login-panel" class="account-panel" role="tabpanel" aria-labelledby="login-tab">
+                <form id="login-form" class="account-card">
+                    <h2>Welcome back</h2>
+                    <p class="account-card-copy">Sign in with the email and password you registered with.</p>
+                    <label for="login-email">Email</label>
+                    <input id="login-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+                    <label for="login-password">Password</label>
+                    <input id="login-password" name="password" type="password" autocomplete="current-password" minlength="10" required>
+                    <button type="submit">Sign in</button>
+                </form>
+            </section>
+
+            <section id="register-panel" class="account-panel" role="tabpanel" aria-labelledby="register-tab" hidden>
+                <form id="register-form" class="account-card">
+                    <h2>Create your account</h2>
+                    <p class="account-card-copy">Your password is saved securely as a hash, never as plain text.</p>
+                    <label for="register-name">Full name</label>
+                    <input id="register-name" name="name" type="text" autocomplete="name" minlength="2" maxlength="100" required>
+                    <label for="register-email">Email</label>
+                    <input id="register-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+                    <label for="register-password">Password (at least 10 characters)</label>
+                    <input id="register-password" name="password" type="password" autocomplete="new-password" minlength="10" required>
+                    <button type="submit">Create account</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/account.js?v=3"></script>
+    <script src="js/session-nav.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "barili-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix OninInternVariant6 run dev"
+  }
+}
